@@ -1,0 +1,175 @@
+<!--
+<html>
+    <head>
+
+        <title>other page</title>
+        <script src="main.js"></script>
+    </head>
+
+    <body>
+
+    </body>
+</html>
+-->
+
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" type="text/css" href="lightbox.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <script type="text/javascript" src="main.js"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <!--<script>
+$(function(){
+$('#header').load('php/headernav.html');
+});
+
+$(function(){
+$('#faleconosco').load('php/faleconosco.html');
+});
+
+$(function(){
+$('#footer').load('php/footer.html');
+});
+</script>-->
+
+        <link rel="icon" href="Images/close.png">
+        <title>TCC</title>
+        
+        <!--<script type="text/javascript">
+            var b = localStorage.getItem("color");
+            alert("cor e: " + b);
+        </script>-->
+    </head>
+
+
+    <body>
+
+        <h1>other pagina</h1>
+        <h2>
+            Name: <span id="result-name"></span>
+        </h2>
+
+        <h2>
+            Surname: <span id="result-surname"></span>
+        </h2>
+        <h1>IMAGE GALLERY</h1>
+        <section>
+            <ul>
+                <li class="list activefilter" data-filter="all" id="allitem">All</li>
+                <li class="list" data-filter="mobile" id="mobile">Mobile</li>
+                <li class="list" data-filter="camera" id="camera">Camera</li>
+                <li class="list" data-filter="watch" id="watch">Watch</li>
+                <li class="list" data-filter="shoe" id="shoe">Shoe</li>
+                <li class="list" data-filter="headphone" id="headphone">Headphone</li>
+            </ul>
+            <ul>
+                <li class="list2 active2" data-filter="all">All Colors</li>
+                <li class="list2" data-filter="blue">blue</li>
+                <li class="list2" data-filter="green">green</li>
+                <li class="list2" data-filter="red">red</li>
+                <li class="list2" data-filter="yellow">yellow</li>
+                <li class="list2" data-filter="white">white</li>
+            </ul>
+            <div class="product otherpage">
+                <div class="itemBox mobile blue"><img src="Images/painel-cor-1.png">mobile / blue</div>
+                <div class="itemBox camera blue"><img src="Images/painel-cor-2.png">camera / blue</div>
+                <div class="itemBox watch green"><img src="Images/painel-cor-3.png">watch / green</div>
+                <div class="itemBox shoe red"><img src="Images/painel-cor-4.png">shoe / red</div>
+                <div class="itemBox headphone yellow"><img src="Images/painel-cor-5.png">headphone / yellow</div>
+                <div class="itemBox camera red"><img src="Images/painel-cor-6.png">camera / red</div>
+                <div class="itemBox watch blue"><img src="Images/painel-cor-7.png">watch / blue</div>
+                <div class="itemBox shoe white"><img src="Images/painel-cor-8.png">shoe / white</div>
+                <div class="itemBox headphone red"><img src="Images/painel-cor-9.png">headphone / red</div>
+            </div>
+        </section>
+
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.list').click(function(){
+                    const value = $(this).attr('data-filter');
+
+                    const value2 = $('.active2').attr('data-filter');
+
+                    console.log("value: " + value);
+                    console.log("value2: " + value2);
+
+                    if(value == 'all' || value2 == 'all'){
+                        if(value == 'all' && value2 == 'all'){
+                            $('.itemBox').show('1000');
+                        }
+                        else{
+                            if(value == 'all') {
+                                $('.itemBox').not('.'+value).hide('1000');
+                                $('.itemBox').filter('.'+value2).show('1000');
+                            }
+                            else{
+                                $('.itemBox').not('.'+value2).hide('1000');
+                                $('.itemBox').filter('.'+value).show('1000');
+                            }
+                        }
+                    }
+                    else{
+                        $('.itemBox').not('.'+value+'.'+value2).hide('1000');
+                        $('.itemBox').filter('.'+value+'.'+value2).show('1000');
+                    }
+                })
+
+                $('.list').click(function(){
+                    $(this).addClass('activefilter').siblings().removeClass('activefilter');
+                })
+
+                $('.list2').click(function(){
+                    const value = $(this).attr('data-filter');
+
+                    const value2 = $('.activefilter').attr('data-filter');
+
+                    console.log("value: " + value);
+                    console.log("value2: " + value2);
+
+                    if(value == 'all' || value2 == 'all'){
+                        if(value == 'all' && value2 == 'all'){
+                            $('.itemBox').show('1000');
+                        }
+                        else{
+                            if(value == 'all') {
+                                $('.itemBox').not('.'+value).hide('1000');
+                                $('.itemBox').filter('.'+value2).show('1000');
+                            }
+                            else{
+
+                                $('.itemBox').not('.'+value2).hide('1000');
+                                $('.itemBox').filter('.'+value).show('1000');
+                            }
+                        }
+                    }
+                    else{
+                        $('.itemBox').not('.'+value+'.'+value2).hide('1000');
+                        $('.itemBox').filter('.'+value+'.'+value2).show('1000');
+                    }
+                })
+
+                $('.list2').click(function(){
+                    $(this).addClass('active2').siblings().removeClass('active2');
+                })
+            })
+        </script>
+
+    </body>
+
+</html>
